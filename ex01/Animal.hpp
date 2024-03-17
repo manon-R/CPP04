@@ -1,8 +1,7 @@
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
-#include "Animal.hpp"
 
 // Macros pour les couleurs
 # define RESET   "\033[0m"
@@ -13,20 +12,24 @@
 # define MAGENTA "\033[35m"
 # define CYAN    "\033[36m"
 
-class Cat : public Animal {
+using std::string;
+
+class Animal {
 
 public:
 
-	Cat();
-	Cat(const Cat&other);
+	Animal();
+	Animal(const Animal&other);
 
-	Cat& operator= (const Cat& other);
+	Animal& operator= (const Animal& other);
 
-	virtual ~Cat();
+	virtual ~Animal();
 
 	virtual void makeSound() const;
+	string getType() const;
 
-
+protected:
+	string type;
 };
 
 #endif

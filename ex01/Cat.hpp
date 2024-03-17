@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 // Macros pour les couleurs
 # define RESET   "\033[0m"
@@ -25,7 +26,10 @@ public:
 	virtual ~Cat();
 
 	virtual void makeSound() const;
+    Brain& getBrain() const;
 
+private:
+    Brain *brain;
 
 };
 
