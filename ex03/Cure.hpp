@@ -15,7 +15,7 @@ public:
 	~Cure();
 	Cure& operator= (const Cure& other);
 
-	Cure* clone() const;
+	AMateria* clone() const;
 	void use(ICharacter& target);
 };
 

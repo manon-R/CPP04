@@ -4,7 +4,7 @@ using std::cout;
 using std::endl;
 
 
-Character::Character(): inventSize(0), trashSize(0){
+Character::Character(): inventSize(0), trashSize(0), name("default"){
 }
 
 Character::Character(string const & name): inventSize(0), trashSize(0), name(name){

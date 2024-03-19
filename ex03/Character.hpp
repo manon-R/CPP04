@@ -28,9 +28,6 @@ public:
 
 private:
 
-	// int getInventSize() const;
-	// int getTrashSize() const;
-
 	AMateria *inventory[4];
 	AMateria *trash[100];
 	int	inventSize;

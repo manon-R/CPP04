@@ -11,13 +11,13 @@ class AMateria
 {
 protected:
 	AMateria();
+	AMateria(string const & type);
 	AMateria(const AMateria& other);
 	string type;
 
 
 public:
 
-	AMateria(string const & type);
 	virtual ~AMateria();
 	AMateria& operator= (const AMateria& other);
 
