@@ -4,10 +4,10 @@ using std::cout;
 using std::endl;
 
 
-Character::Character(): inventSize(0), trashSize(0), name("default"){
+Character::Character(): inventSize(0), name("default"){
 }
 
-Character::Character(string const & name): inventSize(0), trashSize(0), name(name){
+Character::Character(string const & name): inventSize(0), name(name){
 }
 
 Character::Character(const Character& other){
@@ -16,29 +16,14 @@ Character::Character(const Character& other){
 
 Character& Character::operator=(const Character& other){
 	name = other.getName();
-	int i = 0;
-	if (inventSize)
+	for (int i = 0; i < inventSize; i++)
 	{
-		while (i < inventSize)
-		{
-			delete inventory[i];
-			i++;
-		}
-		inventSize = 0;
+		delete inventory[i];
 	}
-	if (trashSize)
-	{
-		i = 0;
-		while (i < trashSize)
-		{
-			delete trash[i];
-			i++;
-		}
-		trashSize = 0;
-	}
+	inventSize = 0;
 	if (other.inventSize > 0)
 	{
-		i = 0;
+		int i = 0;
 		while (i < other.inventSize)
 		{
 			inventory[i] = other.inventory[i]->clone();
@@ -49,23 +34,9 @@ Character& Character::operator=(const Character& other){
 }
 
 Character::~Character(){
-	int i = 0;
-	if (inventSize)
+	for (int i = 0; i < inventSize; i++)
 	{
-		while (i < inventSize)
-		{
-			delete inventory[i];
-			i++;
-		}
-	}
-	if (trashSize)
-	{
-		i = 0;
-		while (i < trashSize)
-		{
-			delete trash[i];
-			i++;
-		}
+		delete inventory[i];
 	}
 }
 
@@ -85,13 +56,11 @@ void Character::equip(AMateria* m){
 
 void Character::unequip(int index){
 	if (index < 0 || index >= inventSize)
-		cout << RED << "Invalid index" << endl;
-	else
 	{
-		trash[trashSize] = inventory[index];
-		trashSize++;
-		inventSize--;
+		cout << RED << "Invalid index" << endl;
+		return ;
 	}
+	inventSize--;
 }
 
 void Character::use(int idx, ICharacter& target){

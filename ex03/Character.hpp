@@ -29,9 +29,7 @@ public:
 private:
 
 	AMateria *inventory[4];
-	AMateria *trash[100];
 	int	inventSize;
-	int trashSize;
 	string name;
 };
 

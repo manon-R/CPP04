@@ -22,9 +22,9 @@ public:
 
 	Dog& operator= (const Dog& other);
 
-	~Dog();
+	virtual ~Dog();
 
-	void makeSound() const;
+	virtual void makeSound() const;
 
 };
 

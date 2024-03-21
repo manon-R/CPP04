@@ -22,7 +22,7 @@ public:
     ~Brain();
 
     void setIdea(string const& idea, int index);
-    string const&  getIdea(int index) const;
+    string getIdea(int index) const;
 
 
 private:

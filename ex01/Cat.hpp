@@ -23,9 +23,9 @@ public:
 
 	Cat& operator= (const Cat& other);
 
-	~Cat();
+	virtual ~Cat();
 
-	void makeSound() const;
+	virtual void makeSound() const;
     Brain& getBrain() const;
 
 private:

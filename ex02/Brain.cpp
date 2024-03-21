@@ -28,7 +28,7 @@ void Brain::setIdea(string const& idea, int index){
         ideas[index] = idea;
 }
 
-string const& Brain::getIdea(int index) const{
+string Brain::getIdea(int index) const{
     if (index >= 0 && index < 100)
         return ideas[index];
     cout << "INVALID INDEX" << endl;
