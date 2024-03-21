@@ -22,6 +22,7 @@ public:
 	~Character();
 
 	string const & getName() const;
+	AMateria *getMateria(int idx) const;
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);

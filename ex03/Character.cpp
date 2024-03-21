@@ -65,7 +65,16 @@ void Character::unequip(int index){
 
 void Character::use(int idx, ICharacter& target){
 	if (idx < 0 || idx >= inventSize)
-		cout << RED << "Invalid index" << endl;
+		cout << RED << "Invalid index\n" << RESET << "Materia of index " << RED << idx << RESET << " doesn't exist" << endl;
 	else
 		inventory[idx]->use(target);
+}
+
+AMateria *Character::getMateria(int idx) const{
+	if (idx < 0 || idx >= inventSize)
+	{
+		cout << RED << "Invalid index" << RESET << endl;
+		return NULL;
+	}
+	return inventory[idx];
 }

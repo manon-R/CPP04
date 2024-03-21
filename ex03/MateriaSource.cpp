@@ -11,36 +11,25 @@ MateriaSource::MateriaSource(const MateriaSource& other){
 }
 
 MateriaSource& MateriaSource::operator= (const MateriaSource& other){
-	int i = 0;
-	if (sizeMateriaTab)
+
+	for (int i = 0; i < sizeMateriaTab; i++)
 	{
-		while (i < sizeMateriaTab)
-		{
-			delete materiaTab[i];
-			i++;
-		}
+		delete materiaTab[i];
 	}
 	if (other.sizeMateriaTab > 0)
 	{
-		i = 0;
-		while (i < other.sizeMateriaTab)
+		for (int i = 0; i < other.sizeMateriaTab; i++)
 		{
 			materiaTab[i] = other.materiaTab[i]->clone();
-			i++;
 		}
 	}
 	return *this;
 }
 
 MateriaSource::~MateriaSource(){
-	if (sizeMateriaTab)
+	for (int i = 0; i < sizeMateriaTab; i++)
 	{
-		int i = 0;
-		while (i < sizeMateriaTab)
-		{
-			delete materiaTab[i];
-			i++;
-		}
+		delete materiaTab[i];
 	}
 }
 
@@ -50,6 +39,7 @@ void MateriaSource::learnMateria(AMateria *am){
 	else
 	{
 		materiaTab[sizeMateriaTab] = am->clone();
+		delete am;
 		sizeMateriaTab++;
 	}
 }
@@ -68,6 +58,6 @@ AMateria* MateriaSource::createMateria(string const & type){
 			return materiaTab[i]->clone();
 		i++;
 	}
-	cout << RED << "No Materia of type " << type << " learned before..." << endl;
+	cout << RED << "No Materia of type " << RESET << type << RED << " learned before..." << RESET << endl;
 	return 0;
 }
